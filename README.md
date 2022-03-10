@@ -47,6 +47,24 @@ dokku config:set --no-restart $DOKKU_APP \
   MW_UPGRADE_KEY={{YOUR UPGRADE KEY}}
 ```
 
+# Enable Sending Email
+
+If you have an SMTP account available for sending email,
+set the various `MW_SMTP_*` values **and** `MW_FROM_EMAIL`, e.g.:
+
+```
+dokku config:set $DOKKU_APP \
+  MW_SMTP_HOST={{HOST}} \
+  MW_SMTP_PORT={{PORT}} \
+  MW_SMTP_USERNAME={{USER NAME}} \
+  MW_SMTP_PASSWORD={{PASSWORD}} \
+  MW_FROM_EMAIL={{THE EMAIL ADDRESS ASSOCIATED WITH THOSE CREDENTIALS}}
+```
+
+This will set up the Mediawiki variables $wgSMTP and $wgPasswordSender.
+
+Note: this will not work if the password includes slashes ('/').
+
 # Set Up
 
 In a browser, go to $APP_DOMAIN/mw-config/

@@ -50,15 +50,32 @@ $wgLogos = [ '1x' => "$wgResourceBasePath/resources/assets/wiki.png" ];
 
 ## UPO means: this is also a user preference option
 
-$wgEnableEmail = true;
+$smtpHost = getenv('MW_SMTP_HOST');
+$smtpPort = getenv('MW_SMTP_PORT');
+$smtpUsername = getenv('MW_SMTP_USERNAME');
+$smtpPassword = getenv('MW_SMTP_PASSWORD');
+$fromEmail = getenv('MW_FROM_EMAIL');
+if ($smtpHost && $smtpPort && $smtpUsername && $smtpPassword && $fromEmail) {
+  $wgSMTP = [
+    'host' => $smtpHost,
+    'IDHost' => $smtpHost,
+    'port' => $smtpPort,
+    'username' => $smtpUsername,
+    'password' => $smtpPassword
+  ];
+  # The 'From' address in all email communications
+  $wgPasswordSender = $fromEmail;
+  $wgEnableEmail = true;
+  # Send email confirmations
+  $wgEmailAuthentication = true;
+} else {
+  $wgEnableEmail = false;
+}
+# Disallow user to user email
 $wgEnableUserEmail = false; # UPO
-
-$wgEmergencyContact = "apache@🌻.invalid";
-$wgPasswordSender = "apache@🌻.invalid";
 
 $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
-$wgEmailAuthentication = true;
 
 ## Database settings
 $databaseUrl = getenv('DATABASE_URL');
