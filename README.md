@@ -24,6 +24,13 @@ dokku config:set --no-restart $DOKKU_APP \
   MW_SERVER={{THE BASE URL FOR YOUR SITE}}
 ```
 
+Optionally, add a custom logo:
+
+```
+dokku config:set --no-restart $DOKKU_APP \
+  MW_LOGO_URL={{THE URL OF A 135x135 LOGO FOR YOUR SITE}}
+```
+
 # Configure Uploads Directory
 
 ```
