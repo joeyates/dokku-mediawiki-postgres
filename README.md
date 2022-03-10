@@ -68,3 +68,17 @@ Note: this will not work if the password includes slashes ('/').
 # Set Up
 
 In a browser, go to $APP_DOMAIN/mw-config/
+
+# Enable Debug Output
+
+If you're having problems and need debug output on errors:
+
+```
+dokku config:set $DOKKU_APP MW_SHOW_EXCEPTION_DETAILS=1
+```
+
+When no longer required:
+
+```
+dokku config:unset $DOKKU_APP MW_SHOW_EXCEPTION_DETAILS
+```

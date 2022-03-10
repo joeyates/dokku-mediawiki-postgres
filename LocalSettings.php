@@ -181,3 +181,7 @@ wfLoadSkin( 'Vector' );
 # End of automatically generated settings.
 # Add more configuration options below.
 
+$showExceptionDetails = getenv('MW_SHOW_EXCEPTION_DETAILS');
+if ($showExceptionDetails) {
+  $wgShowExceptionDetails = true;
+}
