@@ -41,6 +41,17 @@ dokku storage:mount $DOKKU_APP $HOST_IMAGES_PATH:/var/www/html/images
 
 33 is the uid and gid for www-data in the mediawiki image.
 
+By default, file uploads are limited to 2MB.
+To increase this value, set `MW_MAX_UPLOAD_SIZE`
+to the largest file size to accept.
+
+E.g., to set the limit to 10MB:
+
+```
+dokku docker-options:add $DOKKU_APP build '--build-arg "MW_MAX_UPLOAD_SIZE=10M"'
+dokku ps:rebuild $DOKKU_APP
+```
+
 # Set Secrets
 
 Set two secrets - the secret key (for session encryption)
