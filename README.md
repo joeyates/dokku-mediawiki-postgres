@@ -24,6 +24,16 @@ dokku config:set --no-restart $DOKKU_APP \
   MW_SERVER={{THE BASE URL FOR YOUR SITE}}
 ```
 
+# Configure Uploads Directory
+
+```
+ssh root@$DOKKU_HOST "mkdir -p $HOST_IMAGES_PATH"
+ssh root@$DOKKU_HOST "chown -R 33:33 $HOST_IMAGES_PATH"
+dokku storage:mount $DOKKU_APP $HOST_IMAGES_PATH:/var/www/html/images
+```
+
+33 is the uid and gid for www-data in the mediawiki image.
+
 # Set Secrets
 
 Set two secrets - the secret key (for session encryption)
