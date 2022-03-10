@@ -7,7 +7,7 @@ Mediawiki as a Dokku app.
 
 Copy .envrc.sample to .envrc and edit it.
 
-# Deploy
+# Create App
 
 ```
 dokku apps:create $DOKKU_APP
