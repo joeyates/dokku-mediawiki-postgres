@@ -62,6 +62,7 @@ $smtpPassword = getenv('MW_SMTP_PASSWORD');
 $fromEmail = getenv('MW_FROM_EMAIL');
 if ($smtpHost && $smtpPort && $smtpUsername && $smtpPassword && $fromEmail) {
   $wgSMTP = [
+    'auth' => true,
     'host' => $smtpHost,
     'IDHost' => $smtpHost,
     'port' => $smtpPort,
