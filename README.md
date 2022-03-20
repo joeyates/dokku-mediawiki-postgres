@@ -128,6 +128,23 @@ If you have multiple custom skins, separate their names with commas.
 
 Then add your custom skin to `MW_SKINS` (see above).
 
+# Install Extensions
+
+Download the extension to a directory on your server.
+
+```
+export EXTENSION_PATH=/home/me/SomeExtension
+export EXTENSION_NAME=SomeExtension
+dokku storage:mount $DOKKU_APP $EXTENSION_PATH:/var/www/html/extensions/$EXTENSION_NAME
+```
+
+```
+dokku config:set $DOKKU_APP MW_EXTENSIONS=$EXTENSION_NAME
+```
+
+Separate multiple extensions with commas.
+
+
 # Add Completely Custom Code
 
 If the above does not cover your configuration needs,

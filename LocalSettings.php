@@ -174,6 +174,14 @@ foreach($skins as $skin) {
   wfLoadSkin($skin);
 }
 
+$extensionNames = getenv('MW_EXTENSIONS');
+if ($extensionNames) {
+  $extensions = explode(',', $extensionNames);
+  foreach($extensions as $extension) {
+    wfLoadExtension($extension);
+  }
+}
+
 # End of automatically generated settings.
 # Add more configuration options below.
 
