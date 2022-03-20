@@ -83,6 +83,23 @@ This will set up the Mediawiki variables $wgSMTP and $wgPasswordSender.
 
 Note: this will not work if the password includes slashes ('/').
 
+# Add Completely Custom Code
+
+If the above does not cover your configuration needs,
+you can add code to `require` at the end of LocalSettings.php
+by creating a file `CustomSettings.php`.
+
+Let's say your `CustomSettings.php` code is in '/home/me/mediawiki'.
+
+```
+export CUSTOM_SETTINGS_DIRECTORY=/home/me/mediawiki
+```
+
+```
+dokku storage:mount $DOKKU_APP $CUSTOM_SETTINGS_DIRECTORY:/var/www/html/custom
+dokku config:set $DOKKU_APP MW_REQUIRE_CUSTOM_SETTINGS=1
+```
+
 # Set Up
 
 In a browser, go to $APP_DOMAIN/mw-config/

@@ -191,3 +191,8 @@ $showExceptionDetails = getenv('MW_SHOW_EXCEPTION_DETAILS');
 if ($showExceptionDetails) {
   $wgShowExceptionDetails = true;
 }
+
+$requireCustomSettings = getenv('MW_REQUIRE_CUSTOM_SETTINGS');
+if ($requireCustomSettings) {
+  require __DIR__ . '/custom/CustomSettings.php';
+}
