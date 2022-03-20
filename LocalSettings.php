@@ -1,7 +1,7 @@
 <?php
 
 # Protect against web entry
-if ( !defined( 'MEDIAWIKI' ) ) {
+if (!defined('MEDIAWIKI')) {
 	exit;
 }
 
@@ -34,12 +34,10 @@ $wgResourceBasePath = $wgScriptPath;
 ## or else you'll overwrite your logo when you upgrade!
 $wikiLogoUrl = getenv('MW_LOGO_URL');
 if ($wikiLogoUrl) {
-  $wgLogos = [ '1x' => $wikiLogoUrl ];
+  $wgLogos = ['1x' => $wikiLogoUrl];
 } else {
-  $wgLogos = [ '1x' => "$wgResourceBasePath/resources/assets/wiki.png" ];
+  $wgLogos = ['1x' => "$wgResourceBasePath/resources/assets/wiki.png"];
 }
-
-## UPO means: this is also a user preference option
 
 $smtpHost = getenv('MW_SMTP_HOST');
 $smtpPort = getenv('MW_SMTP_PORT');
@@ -64,10 +62,10 @@ if ($smtpHost && $smtpPort && $smtpUsername && $smtpPassword && $fromEmail) {
   $wgEnableEmail = false;
 }
 # Disallow user to user email
-$wgEnableUserEmail = false; # UPO
+$wgEnableUserEmail = false;
 
-$wgEnotifUserTalk = false; # UPO
-$wgEnotifWatchlist = false; # UPO
+$wgEnotifUserTalk = false;
+$wgEnotifWatchlist = false;
 
 ## Database settings
 $databaseUrl = getenv('DATABASE_URL');
@@ -136,7 +134,7 @@ $wgSecretKey = $secretKey;
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
-# Site upgrade key. Must be set to a string (default provided) to turn on the
+# Site upgrade key. Must be set to a string to turn on the
 # web installer while LocalSettings.php is in place
 $upgradeKey = getenv('MW_UPGRADE_KEY');
 if (!$upgradeKey) {
@@ -155,12 +153,9 @@ $wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/cc-by-nc-sa.png";
 # Path to the GNU diff3 utility. Used for conflict resolution.
 $wgDiff3 = "/usr/bin/diff3";
 
-# The following permissions were set based on your choice in the installer
 $wgGroupPermissions['*']['createaccount'] = false;
 $wgGroupPermissions['*']['edit'] = false;
 
-## Default skin: you can change the default skin. Use the internal symbolic
-## names, e.g. 'vector' or 'monobook':
 $defaultSkin = getenv('MW_DEFAULT_SKIN');
 if ($defaultSkin) {
   $wgDefaultSkin = $defaultSkin;
@@ -181,9 +176,6 @@ if ($extensionNames) {
     wfLoadExtension($extension);
   }
 }
-
-# End of automatically generated settings.
-# Add more configuration options below.
 
 $showExceptionDetails = getenv('MW_SHOW_EXCEPTION_DETAILS');
 if ($showExceptionDetails) {
