@@ -118,7 +118,7 @@ $wgShellLocale = "C.UTF-8";
 $wgLanguageCode = "it";
 
 # Time zone
-$wgLocaltimezone = "UTC";
+$wgLocaltimezone = getenv('MW_TIMEZONE') or $wgLocaltimezone = "UTC";
 
 ## Set $wgCacheDirectory to a writable directory on the web server
 ## to make your wiki go slightly faster. The directory should not

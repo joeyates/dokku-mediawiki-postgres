@@ -24,6 +24,13 @@ dokku config:set --no-restart $DOKKU_APP \
   MW_SERVER={{THE BASE URL FOR YOUR SITE}}
 ```
 
+Optionally, set the time zone:
+
+```
+dokku config:set --no-restart $DOKKU_APP \
+  MW_TIMEZONE={{A TIME ZONE}}
+```
+
 Optionally, add a custom logo:
 
 ```
