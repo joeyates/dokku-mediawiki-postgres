@@ -89,6 +89,30 @@ This will set up the Mediawiki variables $wgSMTP and $wgPasswordSender.
 
 Note: this will not work if the password includes slashes ('/').
 
+# Skins
+
+## Change Default Skin
+
+By default, 3 skins are available (the "symbolic" name is in brackets):
+
+* 'MonoBook' ('monobook'),
+* 'Timeless' ('timeless'),
+* 'Vector' ('vector').
+
+Set the default skin (use the skin's "symbolic" name):
+
+```
+dokku config:set $DOKKU_APP MW_DEFAULT_SKIN=monobook
+```
+
+## Enable Specific Skins
+
+```
+dokku config:set $DOKKU_APP MW_SKINS=MonoBook,Vector
+```
+
+NB: Use the skins full names.
+
 # Add Completely Custom Code
 
 If the above does not cover your configuration needs,
