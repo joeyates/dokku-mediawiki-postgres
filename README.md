@@ -33,6 +33,12 @@ dokku config:set --no-restart $DOKKU_APP \
 
 # Configure Uploads Directory
 
+Choose a path on your server tohold uploads:
+
+```
+export HOST_IMAGES_PATH='/some/path/on/server'
+```
+
 ```
 ssh root@$DOKKU_HOST "mkdir -p $HOST_IMAGES_PATH"
 ssh root@$DOKKU_HOST "chown -R 33:33 $HOST_IMAGES_PATH"
