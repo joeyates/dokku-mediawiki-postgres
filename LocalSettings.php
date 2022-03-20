@@ -39,6 +39,11 @@ if ($wikiLogoUrl) {
   $wgLogos = ['1x' => "$wgResourceBasePath/resources/assets/wiki.png"];
 }
 
+$faviconPath = getenv('MW_FAVICON_PATH');
+if ($faviconPath) {
+  $wgFavicon = $faviconPath;
+}
+
 $smtpHost = getenv('MW_SMTP_HOST');
 $smtpPort = getenv('MW_SMTP_PORT');
 $smtpUsername = getenv('MW_SMTP_USERNAME');

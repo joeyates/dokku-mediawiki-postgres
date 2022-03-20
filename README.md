@@ -38,6 +38,13 @@ dokku config:set --no-restart $DOKKU_APP \
   MW_LOGO_URL={{THE URL OF A 135x135 LOGO FOR YOUR SITE}}
 ```
 
+Optionally, set the favicon:
+
+```
+dokku config:set --no-restart $DOKKU_APP \
+  MW_FAVICON_PATH={{THE PATH TO THE FAVICON FOR YOUR SITE}}
+```
+
 # Configure Uploads Directory
 
 Choose a path on your server tohold uploads:
