@@ -113,6 +113,21 @@ dokku config:set $DOKKU_APP MW_SKINS=MonoBook,Vector
 
 NB: Use the skins full names.
 
+## Install Custom Skins
+
+Download the code for the custom skin to a directory
+on your server.
+
+```
+export MY_CUSTOM_SKIN_PATH=/home/me/SomeSkin
+export MY_CUSTOM_SKIN_NAME=SomeSkin
+dokku storage:mount $DOKKU_APP $MY_CUSTOM_SKIN_PATH:/var/www/html/skins/$MY_CUSTOM_SKIN_NAME
+```
+
+If you have multiple custom skins, separate their names with commas.
+
+Then add your custom skin to `MW_SKINS` (see above).
+
 # Add Completely Custom Code
 
 If the above does not cover your configuration needs,
